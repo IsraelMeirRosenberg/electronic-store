@@ -1,0 +1,69 @@
+
+.main {
+    background-color: transparent;
+    width: 20vw;
+    height: 22vw;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    border-radius: 20px;
+    max-width: 250px;
+    max-height:270px;
+    overflow: hidden;
+}
+
+/* This container is needed to position the front and back side */
+.holdFlip {
+  
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.main:hover .holdFlip {
+    transform: rotateX(180deg);
+  }
+  
+  /* Position the front and back side */
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateX(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px;
+    font-size: 10px;
+    width: 35%;
+    height: 35%;
+    color: black;
+    background-color: white;
+  }
+  .back > div:hover{
+    color: white;
+    background-color: black;
+  }

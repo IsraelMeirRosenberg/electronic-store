@@ -1,0 +1,106 @@
+.main {
+    padding: 100px;
+    // height: 800px;
+    width: 100%;
+    color: white;
+    background-color: #303030;
+    display: flex;
+    justify-content: space-between;
+    // flex-wrap: wrap;
+    gap: 100px;
+}
+
+.holdForm {
+    // background-color: blue;
+    // width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.textJoin {
+    font-weight: 800;
+    // color: white;
+}
+
+.btnYellow {
+    background-color: #f2e251;
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    font-weight: 700
+}
+
+.btnYellow:hover {
+    border: solid 1px #f2e251;
+}
+
+.li {
+    font-weight: 100;
+    word-spacing: 3px;
+    margin: 10px 0;
+
+}
+
+.flexUl {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+
+}
+
+.flexUl>div {
+    // background-color: red;
+    width: 30%;
+    // background-color: red;
+
+}
+
+.holdAccordion {
+    display: none;
+}
+
+@media (width < 1000px) {
+    .main {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .flexUl {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media (width < 450px) {
+    .flexUl {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    @media (width < 350px) {
+        .holdAccordion {
+            display: block;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .flexUl {
+            display: none;
+        }
+
+        .main {
+            gap: 20px;
+        }
+    }
+
+}
