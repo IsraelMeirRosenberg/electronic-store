@@ -1,0 +1,93 @@
+.layout {
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+
+    .top {
+        display: flex;
+        background-color: black;
+        width: 100%;
+        height: 50%;
+        justify-content: space-between;
+        padding: 8px 13px;
+        align-items: center;
+
+        .left {
+            display: flex;
+            min-width: 280px;
+            gap: 8px;
+
+            .divBtn {
+                cursor: pointer;
+
+                button>svg {
+                    cursor: pointer;
+                }
+
+                button {
+                    cursor: pointer;
+                }
+            }
+
+
+            &>div>div>button {
+                font-size: 1.1rem;
+                color: white;
+            }
+        }
+
+        .right {
+            height: 100%;
+            width: 50px;
+
+            & svg {
+                color: yellow;
+                font-size: 3rem;
+            }
+
+            @media (width < 550px) {}
+        }
+    }
+
+    .bottom {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+
+            .searchBtn {
+                height: 40px;
+                width: 40px;
+                color: white;
+                border-radius: 8px;
+            }
+
+            &>div {
+                height: 40px;
+                width: 40px;
+                border-radius: 8px;
+            }
+
+            &>div>button {
+                border-radius: 8px;
+            }
+
+            &>input {
+                height: 40px;
+                width: 100%;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            input::placeholder {
+                font-size: 20px;
+            }
+        }
+    }
+}
