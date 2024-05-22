@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="he">
       <body className={rubik.className}>{children}</body>
     </html>
   );

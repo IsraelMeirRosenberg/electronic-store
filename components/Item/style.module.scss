@@ -1,0 +1,27 @@
+.main{
+    height: 500px;
+    width: 400px;
+    border: rgba(0, 0, 0, 0.1) 1px solid;
+    padding:  0 20px;
+}
+.companyImg{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    // background-color: red;
+    align-items: center;
+}
+.holdImg{
+    width: 100%;
+    height: 300px;
+    // background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.holdImg > img{
+    // object-fit: cover;
+    width: 70%;
+    height: 100%;
+}
