@@ -15,7 +15,7 @@ export default async function Home() {
           )}
         </div>
         <div className={styles.holdFlipCards}>
-
+          <FlipCard firstImg='https://d2d22nphq0yz8t.cloudfront.net/6cbcadef-96e0-49e9-b3bd-9921afe362db/www.payngo.co.il/media/New-Icons/Brands/Apple.png' secondImg='https://9to5mac.com/wp-content/uploads/sites/6/2021/09/Mac.png?w=1024' />
         </div>
       </div>
     </>
