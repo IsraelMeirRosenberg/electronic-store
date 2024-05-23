@@ -1,14 +1,12 @@
 .main {
   background-color: transparent;
-  width: 20vw;
-  height: 22vw;
+  height: 25vh;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
   border-radius: 20px;
-  max-width: 250px;
   max-height: 270px;
-
+  width: 100%;
 }
 
 /* This container is needed to position the front and back side */
@@ -31,6 +29,7 @@
 /* Position the front and back side */
 .front,
 .back {
+  background-size: cover;
   position: absolute;
   border-radius: 20px;
   width: 100%;
@@ -46,13 +45,17 @@
   color: black;
 }
 
+.front>img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
 /* Style the back side */
 .back {
   // background-image: url("https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_863/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/v6bwf3e8qhdfhrgq7lv3/IMGWorldsofAdventureTicketinDubai.jpg");
   // background-color: dodgerblue;
   background-size: cover;
   background-position: center;
-
   color: white;
   transform: rotateX(180deg);
   display: flex;
