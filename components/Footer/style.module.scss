@@ -75,7 +75,7 @@
     }
 }
 
-@media (width < 450px) {
+@media (width < 550px) {
     .flexUl {
         margin: 0;
         display: flex;
@@ -86,7 +86,7 @@
         padding: 10px;
     }
 
-    @media (width < 350px) {
+    @media (width < 550px) {
         .holdAccordion {
             display: block;
             display: flex;
