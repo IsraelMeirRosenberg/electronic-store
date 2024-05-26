@@ -12,7 +12,17 @@
   
   gap: 15px;
 }
-@media ( 1400px < width < 2500px) {
+@media ( 2000px < width) {
+    .holdItems{   
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+@media ( 1700px < width < 2000px) {
+    .holdItems{   
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+@media ( 1400px < width < 1700px) {
     .holdItems{   
         grid-template-columns: repeat(6, 1fr);
     }

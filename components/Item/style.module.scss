@@ -5,12 +5,20 @@
     // padding:  0 20px;
 }
 
-.companyImg{
+.holdCompanyImg{
+
     height: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.imgCompany{
+    height: 50px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .holdImg{
     width: 100%;
@@ -24,6 +32,7 @@
     // text-align: center;
 }
 .holdImg > img{
+
     object-fit: contain;
     width: 85%;
     height: 85%;
@@ -35,7 +44,7 @@
     text-align: center;
 }
 .flexTexts{
-   margin-top: 20px;
+    margin-top: 20px;
     gap: 8px;
     display: flex;
     flex-direction: column;
