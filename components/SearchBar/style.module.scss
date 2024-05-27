@@ -1,0 +1,86 @@
+.bottom {
+  transform: translateY(10px);
+  position: relative;
+  z-index: 2;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    .searchBtn {
+      height: 40px;
+      width: 40px;
+      color: white;
+      border-radius: 8px;
+    }
+
+    & > div {
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+    }
+
+    & > div > button {
+      border-radius: 8px;
+    }
+
+    & > input {
+      height: 40px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    input::placeholder {
+      font-size: 20px;
+    }
+  }
+}
+.holdItemsFound {
+  position: absolute;
+  min-width: 300px;
+  height: 300px;
+  overflow: auto;
+  top: 50px;
+  width: 50%;
+  z-index: 2;
+}
+.itemsFound {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 40px;
+  width: 100%;
+  border: 1px rgb(199, 199, 199) solid;
+  background-color: white;
+}
+.imgFound {
+  height: 100%;
+  width: 30px;
+}
+.imgCompanyFound {
+  height: 30px;
+  width: 90px;
+  position: absolute;
+  left: 5px;
+  object-fit: contain;
+}
+.itemsFound:hover {
+  background-color: rgb(227, 227, 227);
+}
+@media (width < 800px) {
+  .imgCompanyFound {
+    width: 40px;
+  }
+}

@@ -16,6 +16,7 @@ export default async function RootLayout({ children }) {
     <html lang="he">
       <body className={rubik.className}>
         <Header />
+        
         {children}
         <Footer />
       </body>

@@ -1,8 +1,13 @@
 
+import { connectToMongo } from '@/server/connectToMongo'
 import AccordionFooter from '../AccordionFooter'
 import InputFooter from '../InputFooter'
 import style from './style.module.scss'
-export default function Footer() {
+import { read_cat_services } from '@/server/BL/services/category.services'
+import Link from 'next/link'
+export default async function Footer() {
+    await connectToMongo()
+    const categories = await read_cat_services()
     return (
         <>
             <div className={style.main}>
@@ -18,18 +23,18 @@ export default function Footer() {
 
                 <div className={style.flexUl}>
 
-                    <div> <p><b>עלינו ועל האתר</b></p>
+                    <div> <p className={style.title}><b>עלינו ועל האתר:</b></p>
                         <ul>
 
-                            {[1, 2, 3, 4, 5, 6, 7, 8].map(a => <li className={style.li}>מוצרים זמינים</li>)}
+                            {[1, 2].map(a => <li className={style.li}>מוצרים זמינים</li>)}
                         </ul>
                     </div>
-                    <div> <p><b>קטגוריות מוצרים מובילו</b>ת</p>
+                    <div> <p className={style.title}><b>קטגוריות מוצרים מובילו:</b></p>
                         <ul>
 
-                            {[1, 2, 3, 4, 5, 6, 7, 8].map(a => <li className={style.li}>צור קשר</li>)}
+                            {categories.map(v => <Link key={v._id} href={v._id}><li  className={style.li}>{v.name}</li></Link>)}
                         </ul></div>
-                    <div> <p><b>מידע נוסף</b></p>
+                    <div> <p className={style.title}><b>מידע נוסף:</b></p>
                         <ul>
 
                             {[1, 2, 3, 4, 5, 6, 7, 8].map(a => <li className={style.li}>תקנון שוברים בכל עת ושעה</li>)}

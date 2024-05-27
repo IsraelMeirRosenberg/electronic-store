@@ -9,9 +9,6 @@ export default async function page({ params: { idCat } }) {
 
 
   const data = await readItems_service({category:idCat});
-
-  // console.log(data);
-
   return (
 
     <div className={style.page}>
@@ -32,6 +29,7 @@ export default async function page({ params: { idCat } }) {
 
 
             imgCompany={a.imgCompany}
+            color={a.color}
           />
         ))}
       </div>
