@@ -26,6 +26,7 @@ const itemSchema = new mongoose.Schema({
         require: true
     },
     desc: {
+        required:true,
         type: String,
     },
     isActive: {
