@@ -6,13 +6,20 @@ import style from "./style.module.scss";
 import FilterItems from "@/components/FilterItems";
 export default async function page({ params: { idCat } }) {
   await connectToMongo();
+
+
   const data = await readItems_service({ category: idCat });
-  console.log(data[0]);
+
+  // console.log(data);
+
   return (
 
     <div className={style.page}>
       <FilterItems />
-      {/* <div className={style.centerItems}> */}
+
+
+
+
       <div className={style.holdItems}>
         {data.map((a) => (
           <Item
@@ -22,11 +29,14 @@ export default async function page({ params: { idCat } }) {
             price={a.price}
             id={a._id}
             desc={a.desc}
+
+
             imgCompany={a.imgCompany}
           />
         ))}
       </div>
-      {/* </div> */}
+
+
     </div>
   );
 }
