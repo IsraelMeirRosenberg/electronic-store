@@ -25,10 +25,6 @@ const itemSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    imgCompany: {
-        type: String,
-        required: true
-    },
     desc: {
         type: String,
     },
