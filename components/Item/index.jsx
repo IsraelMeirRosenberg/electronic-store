@@ -3,9 +3,7 @@ import style from "./style.module.scss";
 import BtnAddToCart from "../BtnAddToCart";
 import Link from "next/link";
 import { flagsItem } from "@/data/flagsItem";
-export default function Item({image , name , price , id ,desc,imgCompany}) {
-console.log(imgCompany);
-
+export default function Item({image , name , price , id ,desc,imgCompany,color}) {
   return (
     <Link  href={`/item/${id}`} >
     <div className={style.main}>
@@ -22,16 +20,19 @@ console.log(imgCompany);
 
       <p className={style.nameItem}>{name}</p>
       <p className={style.textPrice}>
-        צבע : שחור
+        צבע : {color}
       </p>
-      <div>
+      <div className={style.desc}>
         {" "}
         {desc}
         {/* מקרר 4 דלתות בסגנון צרפתי 468 מקפיא תחתון פלוס כגימור נירוסטה אחריות
         יבואן רשמי */}
       </div>
       <div className={style.textPrice}>₪{price}</div>
+      <div className={style.holdAddBtn}>
       <BtnAddToCart />
+
+      </div>
         </div>
     </div>
           </Link>

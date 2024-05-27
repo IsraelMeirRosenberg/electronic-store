@@ -7,7 +7,7 @@ export default function AccordionFooter() {
     const handleClick = () => {
 setOpen(prev=>(!prev))
 }
-console.log(open);
+
     return (
         <>
             <div  style={open?{filter:"brightness(150%)"}:{}} onClick={handleClick} className={style.main}>

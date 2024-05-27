@@ -7,8 +7,6 @@ import FilterItems from "@/components/FilterItems";
 export default async function page({ params: { idCat } }) {
   await connectToMongo();
   const data = await readItems_service({category:idCat});
-
-  // console.log(data);
   return (
 
     <div className={style.page}>
@@ -24,6 +22,7 @@ export default async function page({ params: { idCat } }) {
             id={a._id}
             desc={a.desc}
             imgCompany={a.imgCompany}
+            color={a.color}
           />
         ))}
       </div>
