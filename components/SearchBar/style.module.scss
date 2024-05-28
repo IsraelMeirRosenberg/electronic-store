@@ -49,11 +49,34 @@
   }
 }
 
+.holdItemsFound::-webkit-scrollbar {
+  border-radius: 8px;
+  background-color: white;
+
+}
+
+
+.holdItemsFound::-webkit-scrollbar-thumb {
+  background-color: oklch(90% 0.005 200);
+  border-radius: 8px;
+}
+
+.holdItemsFound::-webkit-scrollbar-thumb:hover {
+  background-color: oklch(86% 0.005 200);
+
+}
+
+
 .holdItemsFound {
   position: absolute;
+  background-color: white;
   z-index: 4;
+  border-radius: 8px;
   min-width: 300px;
   height: 300px;
+  display: flex;
+  flex-direction: column;
+  // gap: 10px;
   overflow: auto;
   top: 45px;
   width: 100%;
@@ -64,18 +87,20 @@
 .itemsFound {
   font-size: 11px;
   display: flex;
+  padding: 16px;
   align-items: center;
   // justify-content: center;
   gap: 20px;
-  height: 40px;
+  // height: 40px;
   width: 100%;
-  border: 1px rgb(199, 199, 199) solid;
+  // border: 1px rgb(199, 199, 199) solid;
   background-color: white;
 }
 
 .imgFound {
   height: 100%;
   width: 30px;
+  mix-blend-mode: multiply;
 }
 
 .imgCompanyFound {
@@ -83,6 +108,7 @@
   width: 90px;
   position: absolute;
   left: 5px;
+  mix-blend-mode: multiply;
   object-fit: contain;
 }
 
@@ -102,7 +128,7 @@
   transform: scale(0);
 }
 
-.dismissArea.dismissAreaActive{
+.dismissArea.dismissAreaActive {
   backdrop-filter: blur(2px);
   background-color: rgba(0, 0, 0, 0.5);
   transform: scale(1);
