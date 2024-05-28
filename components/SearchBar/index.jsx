@@ -8,22 +8,29 @@ import Link from "next/link";
 import { debounce } from "lodash";
 export default function SearchBar() {
   const [items, setItems] = useState([]);
-  
+  const [show, setShow] = useState()
   const handleChange = debounce((e) => {
-      if (!e.target.value) return setItems([]);
-      fetch(`http://localhost:3000/api/items?name=${e.target.value}&color&maxPrice=${Infinity}&minPrice=0`)
+    if (!e.target.value) return setItems([]);
+    fetch(`http://localhost:3000/api/items?name=${e.target.value}&color&maxPrice=${Infinity}&minPrice=0`)
       .then((res) => res.json())
-      .then((data) => setItems(data));
-  },900)
-    
-    
+      .then((data) => {
+        setItems(data)
+      });
+
+  }, 900)
+
   return (
     <>
+
       <div className={styles.bottom}>
-        <form 
-        onBlur={()=>setItems([])}
+        {
+          <div  onClick={() => setShow(false)} className={`${styles.dismissArea} ${show? styles.dismissAreaActive:""}`}>
+          </div>
+        }
+        <form
         >
           <input
+            onClick={() => setShow(true)}
             type="text"
             id="search"
             placeholder="אני רוצה לקנות..."
@@ -33,9 +40,10 @@ export default function SearchBar() {
             <IoMdSearch className={styles.searchBtn} />
           </BlackBtn>
         </form>
-        <div className={styles.holdItemsFound}>
-          {items.map((v, i) => {
-            // if (i < 10)
+        {items.length && show ?
+          <div className={styles.holdItemsFound}>
+            {items.map((v, i) => {
+              // if (i < 10)
               return (
                 <Link
                   className={styles.link}
@@ -61,8 +69,9 @@ export default function SearchBar() {
                   </div>
                 </Link>
               );
-          })}
-        </div>
+            })}
+          </div>
+          : null}
       </div>
     </>
   );

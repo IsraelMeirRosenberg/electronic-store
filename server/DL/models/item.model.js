@@ -29,6 +29,11 @@ const itemSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+    imgCompany: {
+        type: String,
+        required: true
+    },
+
     isActive: {
         type: Boolean,
         default: true
