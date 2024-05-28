@@ -26,12 +26,16 @@ const itemSchema = new mongoose.Schema({
         require: true
     },
     desc: {
-        required:true,
+        required: true,
         type: String,
     },
     isActive: {
         type: Boolean,
         default: true
+    },
+    imgCompany: {
+        type: String,
+        required: true
     }
 })
 export const itemModel = mongoose.models.item || mongoose.model("item", itemSchema)

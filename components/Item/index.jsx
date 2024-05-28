@@ -4,13 +4,11 @@ import BtnAddToCart from "../BtnAddToCart";
 import Link from "next/link";
 import { flagsItem } from "@/data/flagsItem";
 export default function Item({ image, name, price, id, desc, imgCompany }) {
-
-
   return (
     <Link href={`/item/${id}`} >
       <div className={style.main}>
         <div className={style.holdCompanyImg}>
-          <img className={style.imgCompany} src={flagsItem[imgCompany]?.toLowerCase()} alt="" />
+          <img className={style.imgCompany} src={flagsItem[imgCompany?.toLowerCase()]} alt="" />
         </div>
         <div className={style.holdImg}>
           <img
