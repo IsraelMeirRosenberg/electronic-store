@@ -42,9 +42,18 @@
     font-weight: 100;
     word-spacing: 3px;
     margin: 10px 0;
+    transition: all 0.3s ease-in-out;
+    height: 20px;
 
 }
-
+.li:hover{
+    font-size: 19px;
+}
+.title{
+    width: fit-content;
+    // text-decoration: underline;
+    border-bottom:2px solid white;
+}
 .flexUl {
     display: flex;
     justify-content: space-between;

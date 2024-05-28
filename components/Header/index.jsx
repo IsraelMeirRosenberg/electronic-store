@@ -5,6 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import BlackBtn from '../BlackBtn';
 import { FaUserCircle } from "react-icons/fa";
 import { FaFonticonsFi } from "react-icons/fa";
+import SearchBar from '../SearchBar';
 export default function Header() {
     return (
         <div className={styles.layout}>
@@ -24,12 +25,8 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <div className={styles.bottom}>
-                <form>
-                    <input type="text" id='search' placeholder='אני רוצה לקנות...' />
-                    <BlackBtn><IoMdSearch className={styles.searchBtn} /></BlackBtn>
-                </form>
-            </div>
+           <SearchBar/>
+           
         </div >
 
 

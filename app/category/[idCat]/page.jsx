@@ -6,8 +6,9 @@ import style from "./style.module.scss";
 import FilterItems from "@/components/FilterItems";
 export default async function page({ params: { idCat } }) {
   await connectToMongo();
+
+
   const data = await readItemsWithLean_service({ category: idCat });
-  console.log(data[0]);
   return (
     <div className={style.page}>
       <FilterItems />
@@ -21,6 +22,7 @@ export default async function page({ params: { idCat } }) {
             id={a._id}
             desc={a.desc}
             imgCompany={a.imgCompany}
+            color={a.color}
           />
         ))}
       </div>

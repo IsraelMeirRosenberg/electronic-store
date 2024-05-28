@@ -5,15 +5,14 @@ import { readOneItemWithLean_service, readOneItem_service } from '@/server/BL/se
 import { flagsItem } from '@/data/flagsItem'
 export default async function page({ params: { itemId } }) {
     const item = await readOneItemWithLean_service(itemId)
-    const flags = flagsItem
     return (
         <div className={styles.layout}>
             <div className={styles.contain}>
-                <img src={flags[item.imgCompany]} alt="" />
-                <p>{item.name}</p>
-                <p>{item.price}</p>
-                <button><FaCartShopping />הוספה לסל</button>
-                <p>{item.description}</p>
+                <img src={flagsItem[item?.imgCompany?.toLowerCase()]} alt="" />
+                <p className={styles.name}>{item.name}</p>
+                <p className={styles.price}> קנה עכשיו ב-{item.price}</p>
+                <button className={styles.addCartBtn}><FaCartShopping />הוספה לסל</button>
+                <p className={styles.desc}>{item.desc}</p>
             </div>
             <div className={styles.img}>
                 <img src={item.image} alt="" />

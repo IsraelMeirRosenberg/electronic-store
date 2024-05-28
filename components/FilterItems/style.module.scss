@@ -6,7 +6,7 @@
   background-color: white;
   position: fixed;
   top: 200px;
-  z-index: 1;
+  z-index: 4;
 }
 .byPrice {
   height: 25%;
@@ -16,6 +16,7 @@
 }
 .btnShow{
   position: fixed;
+  z-index: 5;
   top:100px;
   right: 20px;
   cursor: pointer;

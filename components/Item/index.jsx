@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import BtnAddToCart from "../BtnAddToCart";
 import Link from "next/link";
 import { flagsItem } from "@/data/flagsItem";
-export default function Item({ image, name, price, id, desc, imgCompany }) {
+export default function Item({ image, name, price, id, desc, imgCompany, color }) {
   return (
     <Link href={`/item/${id}`} >
       <div className={style.main}>
