@@ -49,6 +49,7 @@ export default function SearchBar() {
                   className={styles.link}
                   key={v._id}
                   href={`/item/${v._id}`}
+                  onClick={()=>setShow(false)}
                 >
                   <div className={styles.itemsFound}>
                     <img

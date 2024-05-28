@@ -20,7 +20,7 @@ export default function Item({ image, name, price, id, desc, imgCompany, color }
 
           <p className={style.nameItem}>{name}</p>
           <p className={style.textPrice}>
-            צבע : שחור
+            צבע : {color}
           </p>
           <div>
             {" "}
