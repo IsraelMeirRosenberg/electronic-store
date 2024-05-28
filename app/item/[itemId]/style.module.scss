@@ -1,0 +1,66 @@
+.layout {
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+
+    .contain {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
+
+        .price {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .addCartBtn {
+            height: 40px;
+            width: 150px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-size: large;
+            border-radius: 8px;
+            background-color: rgb(227, 224, 62);
+            transition: all ease-in-out 0.3s;
+        }
+
+        .addCartBtn:hover {
+            cursor: pointer;
+            scale: 1.03;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        & img {
+            width: 200px;
+            object-fit: contain;
+
+        }
+
+        .desc {
+            width: 250px;
+        }
+    }
+
+    .img {
+
+        height: 400px;
+        padding: 2rem;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}
