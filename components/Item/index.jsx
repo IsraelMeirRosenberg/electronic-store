@@ -22,7 +22,7 @@ export default function Item({ image, name, price, id, desc, imgCompany, color }
           <p className={style.textPrice}>
             צבע : {color}
           </p>
-          <div>
+          <div className={style.desc}>
             {" "}
             {desc}
             {/* מקרר 4 דלתות בסגנון צרפתי 468 מקפיא תחתון פלוס כגימור נירוסטה אחריות

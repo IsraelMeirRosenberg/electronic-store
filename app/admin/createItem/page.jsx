@@ -1,41 +1,61 @@
+"use client"
+import { useState } from 'react'
 import style from './style.module.scss'
 export default function () {
-
+    // const [formData, setFormData] = useState({
+    //     name: "",
+    //     desc: "",
+    //     color: "",
+    //     price: "",
+    //     imgCompany: ""
+    //     , image: ""
+    // })
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const fd = new FormData(e.target)
+        const body = Object.fromEntries(fd)
+        console.log(body);
+    }
     return (
         <>
             <div className={style.page}>
-                <form className={style.form} action="">
+                <form onSubmit={handleSubmit} className={style.form} action="">
                     <div className={style.holdLabels}>
                         <label >
                             <p>שם מוצר:</p>
-                            <input className={style.input} type="text" />
+                            <input name='name' className={style.input} type="text" />
                         </label>
 
                         <label >
                             <p> מחיר:</p>
-                            <input className={style.input} type="number" />
+                            <input name='price' className={style.input} type="number" />
                         </label>
                         <label >
                             <p>תיאור מוצר:</p>
-                            <input className={style.input} type="text" />
+                            <input name='desc' className={style.input} type="text" />
                         </label>
                         <label >
                             <p>תמונת מוצר:</p>
-                            <input className={style.input} type="text" />
+                            <input name='image' className={style.input} type="text" />
                         </label>
                         <label>
-                            צבע:
-                            <select className={style.select}>
-                                <option value="">שחור</option>
-                                <option value="">כחול</option>
+                            <p>צבע:</p>
+                            <select name='color' className={style.select}>
+                                <option value="">---</option>
+                                <option value="שחור">שחור</option>
+                                <option value="כחול">כחול</option>
                             </select>
                         </label>
-
-                        <select className={style.select}>
-                            <option value="">Apple</option>
-                            <option value="">Sharp</option>
-                        </select>
+                        <label>
+                            <p>שם מותג:</p>
+                            <select name={"imgCompany"} className={style.select}>
+                                <option value="">---</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Sharp">Sharp</option>
+                            </select>
+                        </label>
                     </div>
+                    <button type='submit'>ok</button>
                 </form>
             </div>
         </>
