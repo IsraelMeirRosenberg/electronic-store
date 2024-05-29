@@ -48,12 +48,18 @@
         }
 
         .desc {
+            padding: 1rem;
+            border-radius: 5px;
             width: 250px;
+            background-color: rgb(71, 65, 65);
+            color: aliceblue;
         }
     }
 
     .img {
-
+        margin-left: 1rem;
+        border-radius: 8px;
+        border: 2px solid rgb(193, 173, 173);
         height: 400px;
         padding: 2rem;
 
