@@ -1,25 +1,103 @@
-.page{
-    width: 100%;
-    height: 100vh;
+.page {
+  width: 100%;
+  height: 100vh;
 }
-.form{
+.form {
     padding: 20px;
-    background-color: rgba(58, 57, 57, 0.24);
+    background-color: rgba(165, 134, 20, 0.246);
     width: 80%;
     height: 80%;
+    min-height: 900px;
     margin: auto;
-border-top: solid 12px rgb(231, 191, 59) ;
-border-left:  solid 12px rgb(231, 191, 59);
-border-bottom: solid 12px rgb(134, 134, 134) ;
-border-right: solid 12px rgb(134, 134, 134) ;
+    border-top: solid 12px rgb(231, 191, 59);
+    border-left: solid 12px rgb(231, 191, 59);
+    border-bottom: solid 12px rgb(134, 134, 134);
+    border-right: solid 12px rgb(134, 134, 134);
 }
+.btn{
+    width: 80px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+    background-color: rgba(128, 128, 128, 1);
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+}
+.btn:hover{
+    scale: 1.1;
+}
+.formDetails{
+    display: flex;
+    
+}
+.title{
+    // text-align: center;
+    margin: auto;
+    font-size: 60px;
+    height: 85px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+    width: fit-content;
+}
+
 .holdLabels{
+    width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
+    gap: 40px;
 }
-.input , .select{
-    width: 40%;
-    height: 30px;
+.input,
+.select {
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid rgba(0,0,0,0.2);
+    outline: none;
+}
+.input:focus{
+    box-shadow: 0px 0px 5px 1px rgb(30, 140, 235);
+}
+.holdItem{
+    position: relative;
+    width: 50%;
+}
+.discoverItem{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+.itemSize{
+    margin: auto;
+    position: relative;
+    top: 25%;
+    max-width:300px;
+}
+
+@media (width < 660px) {
+    .title{
+        font-size: 25px;
+        height: 40px;
+    }
+    .formDetails{
+        flex-direction: column;
+    }
+    .page{
+        height: max-content;
+        margin: 10px 0;
+    }
+    .input , .select{
+        width: 100%;
+    }
+.holdLabels{
+    width: 100%;
+    gap: 5px;
+}
+.holdItem{
+    width: 95%;
+    margin-top: 10px;
+}
 }

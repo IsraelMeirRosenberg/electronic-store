@@ -1,63 +1,142 @@
-"use client"
-import { useState } from 'react'
-import style from './style.module.scss'
+"use client";
+import { useState } from "react";
+import style from "./style.module.scss";
+import Item from "@/components/Item";
 export default function () {
-    // const [formData, setFormData] = useState({
-    //     name: "",
-    //     desc: "",
-    //     color: "",
-    //     price: "",
-    //     imgCompany: ""
-    //     , image: ""
-    // })
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const fd = new FormData(e.target)
-        const body = Object.fromEntries(fd)
-        console.log(body);
+  const [formData, setFormData] = useState({
+    name: "",
+    desc: "",
+    color: "",
+    price: "",
+    imgCompany: "",
+    image: "",
+    category: "",
+  });
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      fetch("http://localhost:3000/api/items", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(formData),
+      })
+        .then((res) => res.json())
+        .then((data) => data);
+    } catch (error) {
+      console.log(error);
     }
-    return (
-        <>
-            <div className={style.page}>
-                <form onSubmit={handleSubmit} className={style.form} action="">
-                    <div className={style.holdLabels}>
-                        <label >
-                            <p>שם מוצר:</p>
-                            <input name='name' className={style.input} type="text" />
-                        </label>
+  };
+  return (
+    <>
+      <div className={style.page}>
+        <form className={style.form} onSubmit={handleSubmit} action="">
+          <p className={style.title}>טופס יצירת מוצר</p>
+          <div className={style.formDetails}>
+            <div className={style.holdLabels}>
+              <label>
+                <p>שם מוצר:</p>
+                <input
+                  onChange={handleChange}
+                  name="name"
+                  className={style.input}
+                  type="text"
+                  autocomplete="off"
+                />
+              </label>
 
-                        <label >
-                            <p> מחיר:</p>
-                            <input name='price' className={style.input} type="number" />
-                        </label>
-                        <label >
-                            <p>תיאור מוצר:</p>
-                            <input name='desc' className={style.input} type="text" />
-                        </label>
-                        <label >
-                            <p>תמונת מוצר:</p>
-                            <input name='image' className={style.input} type="text" />
-                        </label>
-                        <label>
-                            <p>צבע:</p>
-                            <select name='color' className={style.select}>
-                                <option value="">---</option>
-                                <option value="שחור">שחור</option>
-                                <option value="כחול">כחול</option>
-                            </select>
-                        </label>
-                        <label>
-                            <p>שם מותג:</p>
-                            <select name={"imgCompany"} className={style.select}>
-                                <option value="">---</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Sharp">Sharp</option>
-                            </select>
-                        </label>
-                    </div>
-                    <button type='submit'>ok</button>
-                </form>
+              <label>
+                <p> מחיר:</p>
+                <input
+                  onChange={handleChange}
+                  name="price"
+                  className={style.input}
+                  type="number"
+                  autocomplete="off"
+                />
+              </label>
+              <label>
+                <p>תיאור מוצר:</p>
+                <input
+                  onChange={handleChange}
+                  name="desc"
+                  className={style.input}
+                  type="text"
+                  autocomplete="off"
+                />
+              </label>
+              <label>
+                <p>תמונת מוצר:</p>
+                <input
+                  onChange={handleChange}
+                  name="image"
+                  className={style.input}
+                  type="text"
+                  autocomplete="off"
+                />
+              </label>
+              <label>
+                <p>צבע:</p>
+                <select
+                  onChange={handleChange}
+                  name="color"
+                  className={style.select}
+                >
+                  <option value="">---</option>
+                  <option value="שחור">שחור</option>
+                  <option value="כחול">כחול</option>
+                </select>
+              </label>
+              <label>
+                <p>שם מותג:</p>
+                <select
+                  onChange={handleChange}
+                  name={"imgCompany"}
+                  className={style.select}
+                >
+                  <option value="">---</option>
+                  <option value="Apple">Apple</option>
+                  <option value="Sharp">Sharp</option>
+                </select>
+              </label>
+              <label>
+                <p>קטגוריה:</p>
+                <select
+                  onChange={handleChange}
+                  name={"category"}
+                  className={style.select}
+                >
+                  <option value="">---</option>
+                  <option value="">טוסטרים</option>
+                  <option value="מסכי מחשב">מסכי מחשב</option>
+                </select>
+              </label>
+              <button className={style.btn} type="submit">
+                צור מוצר
+              </button>
             </div>
-        </>
-    )
+
+            <div className={style.holdItem}>
+              <div className={style.discoverItem}></div>
+              <div className={style.itemSize}>
+                <Item
+                  color={formData.color}
+                  desc={formData.desc}
+                  image={formData.image}
+                  imgCompany={formData.imgCompany}
+                  name={formData.name}
+                  price={formData.price}
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
+  );
 }
