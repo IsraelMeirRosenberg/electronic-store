@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import Item from "@/components/Item";
 export default function () {
-  const [allCategories, setAllCategories] = useState([]);
+  const [allCategories, setAllCategories] = useState([])
   const [formData, setFormData] = useState({
     name: "",
     desc: "",
@@ -26,7 +26,7 @@ export default function () {
         },
         method: "POST",
         body: JSON.stringify(formData),
-      });
+      })
       setFormData({
         name: "",
         desc: "",
@@ -43,12 +43,10 @@ export default function () {
     }
   };
   useEffect(() => {
-    fetch("http://localhost:3000/api/categories/getAllCategories", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => setAllCategories(data));
-  }, []);
+    fetch("http://localhost:3000/api/categories/getAllCategories", { method: "GET" })
+      .then(res => res.json())
+      .then(data => setAllCategories(data))
+  }, [])
   return (
     <>
       <div className={style.page}>
@@ -143,19 +141,15 @@ export default function () {
                 צור מוצר
               </button>
             </div>
-
-            <div className={style.holdItem}>
-              <div className={style.discoverItem}></div>
-              <div className={style.itemSize}>
-                <Item
-                  color={formData.color}
-                  desc={formData.desc}
-                  image={formData.image}
-                  imgCompany={formData.imgCompany}
-                  name={formData.name}
-                  price={formData.price}
-                />
-              </div>
+            <div className={style.itemSize}>
+              <Item
+                color={formData.color}
+                desc={formData.desc}
+                image={formData.image}
+                imgCompany={formData.imgCompany}
+                name={formData.name}
+                price={formData.price}
+              />
             </div>
           </div>
         </form>
