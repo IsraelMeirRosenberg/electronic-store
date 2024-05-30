@@ -101,16 +101,13 @@ export default function () {
               </label>
               <label>
                 <p>צבע:</p>
-                <select
+                <input
                   onChange={handleChange}
                   name="color"
-                  className={style.select}
+                  className={style.input}
                   value={formData.color || ""}
-                >
-                  <option value="">---</option>
-                  <option value="שחור">שחור</option>
-                  <option value="כחול">כחול</option>
-                </select>
+                  autocomplete="off"
+                 />
               </label>
               <label>
                 <p>שם מותג:</p>
@@ -119,6 +116,7 @@ export default function () {
                   name={"imgCompany"}
                   className={style.input}
                   value={formData.imgCompany || ""}
+                  autocomplete="off"
                 />
               </label>
               <label>
