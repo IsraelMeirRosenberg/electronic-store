@@ -1,7 +1,9 @@
 "use client"
 import React from 'react'
 import styles from './style.module.scss'
-export default function page() {
+export default async function page({ params: { itemId } }) {
+
+
     return (
         <div>
 

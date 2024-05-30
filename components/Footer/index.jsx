@@ -32,7 +32,7 @@ export default async function Footer() {
                     <div> <p className={style.title}><b>קטגוריות מוצרים מובילו:</b></p>
                         <ul>
 
-                            {categories.map(v => <Link key={v._id} href={v._id}><li  className={style.li}>{v.name}</li></Link>)}
+                            {categories.map(v => <Link key={v._id} href={`/category/${v._id}`}><li className={style.li}>{v.name}</li></Link>)}
                         </ul></div>
                     <div> <p className={style.title}><b>מידע נוסף:</b></p>
                         <ul>
@@ -43,8 +43,8 @@ export default async function Footer() {
                 </div>
 
                 <div className={style.holdAccordion}>
-<AccordionFooter/>
-<AccordionFooter/>
+                    <AccordionFooter />
+                    <AccordionFooter />
                 </div>
 
             </div>
