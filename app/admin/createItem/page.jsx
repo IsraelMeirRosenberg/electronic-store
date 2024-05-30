@@ -114,17 +114,12 @@ export default function () {
               </label>
               <label>
                 <p>שם מותג:</p>
-                <select
+                <input
                   onChange={handleChange}
                   name={"imgCompany"}
-                  className={style.select}
+                  className={style.input}
                   value={formData.imgCompany || ""}
-                >
-                  <option value="">---</option>
-
-                  {/* <option value="Apple">Apple</option>
-                  <option value="Sharp">Sharp</option> */}
-                </select>
+                />
               </label>
               <label>
                 <p>קטגוריה:</p>
@@ -135,9 +130,11 @@ export default function () {
                   value={formData.category || ""}
                 >
                   <option value="">---</option>
-                  {
-                    allCategories.map(cat => <option key={cat._id} value={cat.name}>{cat.name}</option>)
-                  }
+                  {allCategories.map((cat) => (
+                    <option key={cat._id} value={cat.name}>
+                      {cat.name}
+                    </option>
+                  ))}
                 </select>
               </label>
               <button className={style.btn} type="submit">
