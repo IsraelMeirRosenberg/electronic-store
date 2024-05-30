@@ -4,6 +4,7 @@ import { connectToMongo } from "@/server/connectToMongo";
 import React from "react";
 import style from "./style.module.scss";
 import FilterItems from "@/components/FilterItems";
+import Link from "next/link";
 export default async function page({ params: { idCat } }) {
   await connectToMongo();
 
@@ -14,16 +15,18 @@ export default async function page({ params: { idCat } }) {
       <FilterItems />
       <div className={style.holdItems}>
         {data.map((a) => (
-          <Item
-            key={a._id}
-            image={a.image}
-            name={a.name}
-            price={a.price}
-            id={a._id}
-            desc={a.desc}
-            imgCompany={a.imgCompany}
-            color={a.color}
-          />
+          <Link key={a._id} href={`/item/${a._id}`} >
+            <Item
+
+              image={a.image}
+              name={a.name}
+              price={a.price}
+              id={a._id}
+              desc={a.desc}
+              imgCompany={a.imgCompany}
+              color={a.color}
+            />
+          </Link>
         ))}
       </div>
     </div>
