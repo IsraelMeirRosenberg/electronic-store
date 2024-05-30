@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import Item from "@/components/Item";
 export default function () {
-  const [allCategories,setAllCategories] = useState([])
+  const [allCategories, setAllCategories] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     desc: "",
@@ -26,25 +26,29 @@ export default function () {
         },
         method: "POST",
         body: JSON.stringify(formData),
+      });
+      setFormData({
+        name: "",
+        desc: "",
+        color: "",
+        price: "",
+        imgCompany: "",
+        image: "",
+        category: "",
       })
-      setFormData({  name: "",
-      desc: "",
-      color: "",
-      price: "",
-      imgCompany: "",
-      image: "",
-      category: "",})
-      .then((res) => res.json())
-      .then((data) => data);
+        .then((res) => res.json())
+        .then((data) => data);
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(()=>{
-    fetch("http://localhost:3000/api/categories/getAllCategories",{method:"GET"})
-    .then(res=>res.json())
-    .then(data=>setAllCategories(data))
-  },[])
+  useEffect(() => {
+    fetch("http://localhost:3000/api/categories/getAllCategories", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setAllCategories(data));
+  }, []);
   return (
     <>
       <div className={style.page}>
@@ -112,17 +116,12 @@ export default function () {
               </label>
               <label>
                 <p>שם מותג:</p>
-                <select
+                <input
                   onChange={handleChange}
                   name={"imgCompany"}
-                  className={style.select}
+                  className={style.input}
                   value={formData.imgCompany || ""}
-                >
-                  <option value="">---</option>
-                
-                  {/* <option value="Apple">Apple</option>
-                  <option value="Sharp">Sharp</option> */}
-                </select>
+                />
               </label>
               <label>
                 <p>קטגוריה:</p>
@@ -133,9 +132,11 @@ export default function () {
                   value={formData.category || ""}
                 >
                   <option value="">---</option>
-                  {
-                    allCategories.map(cat=><option key={cat._id} value={cat.name}>{cat.name}</option>)
-                  }
+                  {allCategories.map((cat) => (
+                    <option key={cat._id} value={cat.name}>
+                      {cat.name}
+                    </option>
+                  ))}
                 </select>
               </label>
               <button className={style.btn} type="submit">
