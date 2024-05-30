@@ -23,13 +23,3 @@ export const GET = async (req) => {
 
 
 
-export const POST = async(req) => {
-try {
-  const body = await req.json()
-  const res = await createItem_service(body)
-  console.log(res);
-  return NextResponse.json(res)
-} catch (error) {
-   console.log(error);
-}
-}
