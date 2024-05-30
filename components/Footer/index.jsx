@@ -3,7 +3,7 @@ import { connectToMongo } from '@/server/connectToMongo'
 import AccordionFooter from '../AccordionFooter'
 import InputFooter from '../InputFooter'
 import style from './style.module.scss'
-import { read_cat_services } from '@/server/BL/services/category.services'
+import { read_cat_services } from '@/server/BL/services/category.service'
 import Link from 'next/link'
 export default async function Footer() {
     await connectToMongo()

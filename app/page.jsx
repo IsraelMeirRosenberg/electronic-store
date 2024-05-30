@@ -1,7 +1,7 @@
 import styles from "./page.module.scss";
 import { connectToMongo } from "@/server/connectToMongo";
 import OneCategory from "@/components/OneCategory";
-import { read_cat_services } from "@/server/BL/services/category.services";
+import { read_cat_services } from "@/server/BL/services/category.service";
 import Link from "next/link";
 import FlipCard from "@/components/FlipCard";
 import { createItem_service, readItems_service } from "@/server/BL/services/item.service";

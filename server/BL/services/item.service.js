@@ -1,7 +1,7 @@
 const { createItem_controller, readOneItemWithLean_controller, readOneItem_controller, putItem_controller, readItems_controller, readItemsWithLean_controller } = require("@/server/DL/controllers/item.controller")
 
 export const createItem_service = async (data) => {
-    data.name = data.name[0].toUpperCase() + data.slice(1, data.length)
+    data.name = data.name[0].toUpperCase() + data.name.slice(1, data.length)
     return await createItem_controller(data)
 }
 export const readItemsWithLean_service = async (filter) => {
@@ -15,6 +15,7 @@ export const readOneItem_service = async (id) => {
 }
 export const readOneItemWithLean_service = async (id) => {
     return await readOneItemWithLean_controller(id)
+
 }
 export const putItem_service = async (id, data) => {
     return await putItem_controller(id, data)
