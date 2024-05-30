@@ -11,7 +11,7 @@ export default function SearchBar() {
   const [show, setShow] = useState()
   const handleChange = debounce((e) => {
     if (!e.target.value) return setItems([]);
-    fetch(`http://localhost:3000/api/items?name=${e.target.value}&color&maxPrice=${Infinity}&minPrice=0`)
+    fetch(`http://localhost:3000/api/items?name=${e.target.value}&color&maxPrice=${Infinity}&minPrice=0`,{method:"GET"})
       .then((res) => res.json())
       .then((data) => {
         setItems(data)
