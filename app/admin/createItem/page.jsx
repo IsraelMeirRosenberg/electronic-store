@@ -61,7 +61,7 @@ export default function () {
                   name="name"
                   className={style.input}
                   type="text"
-                  autocomplete="off"
+                  // autoComplete="off"
                   value={formData.name || ""}
                 />
               </label>
@@ -73,7 +73,7 @@ export default function () {
                   name="price"
                   className={style.input}
                   type="number"
-                  autocomplete="off"
+                  autoComplete="off"
                   value={formData.price || ""}
                 />
               </label>
@@ -84,7 +84,7 @@ export default function () {
                   name="desc"
                   className={style.input}
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
                   value={formData.desc || ""}
                 />
               </label>
@@ -95,7 +95,7 @@ export default function () {
                   name="image"
                   className={style.input}
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
                   value={formData.image || ""}
                 />
               </label>
@@ -106,8 +106,8 @@ export default function () {
                   name="color"
                   className={style.input}
                   value={formData.color || ""}
-                  autocomplete="off"
-                 />
+                  autoComplete="off"
+                />
               </label>
               <label>
                 <p>שם מותג:</p>
@@ -116,7 +116,7 @@ export default function () {
                   name={"imgCompany"}
                   className={style.input}
                   value={formData.imgCompany || ""}
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </label>
               <label>
@@ -129,7 +129,7 @@ export default function () {
                 >
                   <option value="">---</option>
                   {allCategories.map((cat) => (
-                    <option key={cat._id} value={cat.name}>
+                    <option key={cat._id} value={cat._id}>
                       {cat.name}
                     </option>
                   ))}
