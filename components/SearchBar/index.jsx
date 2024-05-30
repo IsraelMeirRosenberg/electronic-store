@@ -16,7 +16,6 @@ export default function SearchBar() {
       .then((data) => {
         setItems(data)
       });
-
   }, 900)
 
   return (
