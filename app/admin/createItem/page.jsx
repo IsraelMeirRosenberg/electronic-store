@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import Item from "@/components/Item";
 export default function () {
+  const [allCategories,setAllCategories] = useState([])
   const [formData, setFormData] = useState({
     name: "",
     desc: "",
@@ -39,6 +40,11 @@ export default function () {
       console.log(error);
     }
   };
+  useEffect(()=>{
+    fetch("http://localhost:3000/api/categories/getAllCategories",{method:"GET"})
+    .then(res=>res.json())
+    .then(data=>setAllCategories(data))
+  },[])
   return (
     <>
       <div className={style.page}>
@@ -113,8 +119,9 @@ export default function () {
                   value={formData.imgCompany || ""}
                 >
                   <option value="">---</option>
-                  <option value="Apple">Apple</option>
-                  <option value="Sharp">Sharp</option>
+                
+                  {/* <option value="Apple">Apple</option>
+                  <option value="Sharp">Sharp</option> */}
                 </select>
               </label>
               <label>
@@ -126,8 +133,9 @@ export default function () {
                   value={formData.category || ""}
                 >
                   <option value="">---</option>
-                  <option value="664c6cf74fe374467bc87b76">טוסטרים</option>
-                  <option value="מסכי מחשב">מסכי מחשב</option>
+                  {
+                    allCategories.map(cat=><option key={cat._id} value={cat.name}>{cat.name}</option>)
+                  }
                 </select>
               </label>
               <button className={style.btn} type="submit">
