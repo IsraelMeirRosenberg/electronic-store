@@ -1,4 +1,4 @@
-const { createItem_controller, readOneItemWithLean_controller, readOneItem_controller, putItem_controller, readItems_controller, readItemsWithLean_controller } = require("@/server/DL/controllers/item.controller")
+import { createItem_controller, readOneItemWithLean_controller, readOneItem_controller, putItem_controller, readItems_controller, readItemsWithLean_controller } from "@/server/DL/controllers/item.controller"
 
 export const createItem_service = async (data) => {
     data.name = data.name[0].toUpperCase() + data.name.slice(1, data.length)
