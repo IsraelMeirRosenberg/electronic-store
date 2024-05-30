@@ -18,7 +18,7 @@ export default function () {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      fetch("http://localhost:3000/api/items", {
+      fetch("http://localhost:3000/api/items/createItem", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -26,8 +26,15 @@ export default function () {
         method: "POST",
         body: JSON.stringify(formData),
       })
-        .then((res) => res.json())
-        .then((data) => data);
+      setFormData({  name: "",
+      desc: "",
+      color: "",
+      price: "",
+      imgCompany: "",
+      image: "",
+      category: "",})
+      .then((res) => res.json())
+      .then((data) => data);
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +54,7 @@ export default function () {
                   className={style.input}
                   type="text"
                   autocomplete="off"
+                  value={formData.name || ""}
                 />
               </label>
 
@@ -58,6 +66,7 @@ export default function () {
                   className={style.input}
                   type="number"
                   autocomplete="off"
+                  value={formData.price || ""}
                 />
               </label>
               <label>
@@ -68,6 +77,7 @@ export default function () {
                   className={style.input}
                   type="text"
                   autocomplete="off"
+                  value={formData.desc || ""}
                 />
               </label>
               <label>
@@ -78,6 +88,7 @@ export default function () {
                   className={style.input}
                   type="text"
                   autocomplete="off"
+                  value={formData.image || ""}
                 />
               </label>
               <label>
@@ -86,6 +97,7 @@ export default function () {
                   onChange={handleChange}
                   name="color"
                   className={style.select}
+                  value={formData.color || ""}
                 >
                   <option value="">---</option>
                   <option value="שחור">שחור</option>
@@ -98,6 +110,7 @@ export default function () {
                   onChange={handleChange}
                   name={"imgCompany"}
                   className={style.select}
+                  value={formData.imgCompany || ""}
                 >
                   <option value="">---</option>
                   <option value="Apple">Apple</option>
@@ -110,9 +123,10 @@ export default function () {
                   onChange={handleChange}
                   name={"category"}
                   className={style.select}
+                  value={formData.category || ""}
                 >
                   <option value="">---</option>
-                  <option value="">טוסטרים</option>
+                  <option value="664c6cf74fe374467bc87b76">טוסטרים</option>
                   <option value="מסכי מחשב">מסכי מחשב</option>
                 </select>
               </label>
