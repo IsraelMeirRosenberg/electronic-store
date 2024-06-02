@@ -4,17 +4,6 @@ import style from "./style.module.scss";
 import Item from "@/components/Item";
 export default function ({ params: { itemId } }) {
     const [allCategories, setAllCategories] = useState([])
-    const [item, setItem] = useState()
-    useEffect(() => {
-        try {
-            fetch(`/api/items/getItemById/${itemId}`)
-                .then((res) => res.json())
-                .then((data) => console.log(data))
-        } catch (error) {
-            console.log(error);
-        }
-
-    }, [])
     const [formData, setFormData] = useState({
         name: "",
         desc: "",
@@ -24,21 +13,34 @@ export default function ({ params: { itemId } }) {
         image: "",
         category: "",
     });
+    useEffect(() => {
+        try {
+            fetch(`/api/items/getItemById/${itemId}`)
+                .then((res) => res.json())
+                .then((data) => setFormData(data))
+        } catch (error) {
+            console.log(error);
+        }
+
+    }, [])
     const handleChange = (e) => {
-        // console.log(item);
-        setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value, isUpdated: false }));
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:3000/api/items/createItem", {
+            fetch(`http://localhost:3000/api/items/updateItem/${itemId}`, {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                 },
-                method: "POST",
+                method: "PUT",
                 body: JSON.stringify(formData),
             })
+                .then((res) => res.json())
+                .then((data) => {
+                    setFormData({ ...data, isUpdated: true })
+                });
             setFormData({
                 name: "",
                 desc: "",
@@ -48,8 +50,6 @@ export default function ({ params: { itemId } }) {
                 image: "",
                 category: "",
             })
-                .then((res) => res.json())
-                .then((data) => data);
         } catch (error) {
             console.log(error);
         }
@@ -62,13 +62,15 @@ export default function ({ params: { itemId } }) {
     return (
         <>
             <div className={style.page}>
-                <form className={style.form} onSubmit={handleSubmit} action="">
+                <form className={style.form} onSubmit={handleSubmit}>
                     <p className={style.title}>טופס עדכון מוצר</p>
+                    {formData.isUpdated ? <p className={style.updated}>המוצר עודכן בהצלחה</p> : ""}
                     <div className={style.formDetails}>
                         <div className={style.holdLabels}>
                             <label>
                                 <p>שם מוצר:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name="name"
                                     className={style.input}
@@ -81,6 +83,7 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p> מחיר:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name="price"
                                     className={style.input}
@@ -92,6 +95,7 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p>תיאור מוצר:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name="desc"
                                     className={style.input}
@@ -103,6 +107,7 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p>תמונת מוצר:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name="image"
                                     className={style.input}
@@ -114,6 +119,7 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p>צבע:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name="color"
                                     className={style.input}
@@ -124,6 +130,7 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p>שם מותג:</p>
                                 <input
+                                    required
                                     onChange={handleChange}
                                     name={"imgCompany"}
                                     className={style.input}
@@ -134,21 +141,23 @@ export default function ({ params: { itemId } }) {
                             <label>
                                 <p>קטגוריה:</p>
                                 <select
+                                    required
                                     onChange={handleChange}
                                     name={"category"}
                                     className={style.select}
                                     value={formData.category || ""}
                                 >
-                                    <option value="">---</option>
+                                    <option value={formData?.category}>{allCategories.map(c => c._id == formData.category ? c.name : '')}
+                                    </option>
                                     {allCategories.map((cat) => (
-                                        <option key={cat._id} value={cat.name}>
+                                        <option key={cat._id} value={cat._id}>
                                             {cat.name}
                                         </option>
                                     ))}
                                 </select>
                             </label>
                             <button className={style.btn} type="submit">
-                                צור מוצר
+                                עדכן מוצר
                             </button>
                         </div>
                         <div className={style.itemSize}>

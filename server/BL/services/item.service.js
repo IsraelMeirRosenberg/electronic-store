@@ -15,7 +15,6 @@ export const readOneItem_service = async (id) => {
 }
 export const readOneItemWithLean_service = async (id) => {
     return await readOneItemWithLean_controller(id)
-
 }
 export const putItem_service = async (id, data) => {
     return await putItem_controller(id, data)
