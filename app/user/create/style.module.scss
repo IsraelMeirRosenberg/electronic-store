@@ -1,0 +1,147 @@
+.page{
+    padding: 30px 0;
+}
+.form{
+//    background-color: rgba(255, 0, 0, 0.083);
+border: rgba(0, 0, 0, 0.5) 1px solid;
+    width: 50%;
+    // height: 500px;
+    margin: auto;
+    overflow: hidden;
+    border-top: solid 12px rgb(231, 191, 59);
+    border-left: solid 12px rgb(231, 191, 59);
+    border-bottom: solid 12px rgb(134, 134, 134);
+    border-right: solid 12px rgb(134, 134, 134);
+}
+.holdLabelsRight{
+    padding: 10px;
+    // width: 50%;
+    height: 100%;
+    background-color: rgba(165, 134, 20, 0.246);
+    // border: black solid 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+.input{
+    border-radius: 5px;
+    height: 35px;
+    width: 320px;
+    outline: none;
+    border:1px solid rgb(175, 175, 175);
+}
+.input:focus{
+    box-shadow: 0px 0px 5px 1px rgb(30, 140, 235);
+
+}
+.title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+.holdOR{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+.holdOR :first-child , .holdOR :last-child{
+    border-radius: 20px;
+width: 130px;
+height: 2px;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btnJoin{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btnJoin:hover{
+    scale: 1.02;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.297);
+}
+.icons{
+    width: 20px;
+
+}
+.holdBtns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+@media (width < 660px) {
+    .page{
+        padding: 0;
+    }
+    .form{
+        width: 100%;
+    }
+    .holdLabelsRight{
+      align-items: normal;
+    }
+    .input{
+        width:100%;
+    }
+}
+@media (width > 1600px){
+    .input::placeholder{
+        font-size: 20px;
+        padding-right: 10px;
+    transform: translateY(2px);
+    }
+    .page{
+        padding-bottom: 150px;
+    }
+    .form{
+        height: 900px;
+    }
+    .title{
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+    }
+    .holdLabelsRight{
+        padding-top: 30px;
+        align-items: center;
+        width: 100%;
+        gap: 25px;
+    }
+    .input{
+        width: 600px;
+        height: 42px;
+    }
+    .btnJoin{
+        width: 300px;
+        height: 45px;
+    }
+    .holdOR{
+        // height: 100px;
+        font-size: 30px;
+        font-weight: 600;
+        
+    }
+    .holdOR :first-child , .holdOR :last-child{
+        height: 5px;
+    }
+    .holdBtns{
+        transform:translateY(80px) ;
+        gap: 25px;
+     
+    }
+}
